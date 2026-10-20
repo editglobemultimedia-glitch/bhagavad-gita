@@ -46,6 +46,8 @@ export const metadata: Metadata = {
     title: "Bhagavad Gita Vishwa Mahotsav 2027",
     description: "A Global Celebration of the Eternal Wisdom of the Bhagavad Gita",
     images: ["/og-image.jpg"],
+    creator: "@gita_event",
+    site: "@gita_event",
   },
   robots: {
     index: true,
@@ -90,7 +92,13 @@ export default function RootLayout({
                 "logo": {
                   "@type": "ImageObject",
                   "url": "https://divineaura.world/icon.jpg"
-                }
+                },
+                "sameAs": [
+                  "https://instagram.com/bhagavad_gita_vishwa_mahotsav",
+                  "https://facebook.com/BhagavadGitaVishwaMahotsav",
+                  "https://x.com/gita_event",
+                  "https://youtube.com/@bhagavadgitavishwamahotsav"
+                ]
               }
             })
           }}

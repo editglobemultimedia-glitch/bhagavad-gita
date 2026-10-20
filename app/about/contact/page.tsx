@@ -32,8 +32,8 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <p className="font-sans font-semibold text-ink text-sm mb-1">Facebook</p>
-                    <a href="https://www.facebook.com/divineauraworld9" target="_blank" rel="noopener noreferrer" className="text-gold hover:underline text-sm font-sans">
-                      @divineauraworld9
+                    <a href="https://facebook.com/BhagavadGitaVishwaMahotsav" target="_blank" rel="noopener noreferrer" className="text-gold hover:underline text-sm font-sans">
+                      @BhagavadGitaVishwaMahotsav
                     </a>
                   </div>
                 </div>
@@ -43,8 +43,8 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <p className="font-sans font-semibold text-ink text-sm mb-1">X (Twitter)</p>
-                    <a href="https://twitter.com/Divineauraworld" target="_blank" rel="noopener noreferrer" className="text-gold hover:underline text-sm font-sans">
-                      @Divineauraworld
+                    <a href="https://x.com/gita_event" target="_blank" rel="noopener noreferrer" className="text-gold hover:underline text-sm font-sans">
+                      @gita_event
                     </a>
                   </div>
                 </div>
@@ -54,8 +54,8 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <p className="font-sans font-semibold text-ink text-sm mb-1">Instagram</p>
-                    <a href="https://www.instagram.com/divine_aura.world " target="_blank" rel="noopener noreferrer" className="text-gold hover:underline text-sm font-sans">
-                      @divine_aura.world 
+                    <a href="https://instagram.com/bhagavad_gita_vishwa_mahotsav" target="_blank" rel="noopener noreferrer" className="text-gold hover:underline text-sm font-sans">
+                      @bhagavad_gita_vishwa_mahotsav
                     </a>
                   </div>
                 </div>
@@ -65,8 +65,8 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <p className="font-sans font-semibold text-ink text-sm mb-1">YouTube</p>
-                    <a href="https://www.youtube.com/@Divineauraworld" target="_blank" rel="noopener noreferrer" className="text-gold hover:underline text-sm font-sans">
-                      @Divineauraworld
+                    <a href="https://youtube.com/@bhagavadgitavishwamahotsav" target="_blank" rel="noopener noreferrer" className="text-gold hover:underline text-sm font-sans">
+                      @bhagavadgitavishwamahotsav
                     </a>
                   </div>
                 </div>
