@@ -292,7 +292,7 @@ export const teamMembers: TeamMember[] = [
     kicker: "Senior Anchor • Artist • Content & Communication",
     shortIntro:
       "A senior media professional with 22 years of experience as a Senior Anchor and Artist, with an extensive body of work in devotional programming across leading television channels including Zee and Maa TV.",
-    image: "/images/team/vemuri_shravani.png",
+    image: "/images/team/vemuri_shravani.jpeg",
     objectPosition: "center 20%",
     stats: [
       { value: "22 Years", label: "Media & Television Experience" },
@@ -473,94 +473,7 @@ export const teamMembers: TeamMember[] = [
     highlightQuote:
       "Connecting visionary concepts with enduring relationships to create lasting momentum for Bhagavadgita Vishwa Mahotsav 2027.",
   },
-  {
-    id: "malladi-anand",
-    name: "Malladi Anand",
-    designation: "Event Strategy, Management & Marketing • Founder First Looks",
-    roleBadge: "Bhagavadgita Vishwa Mahotsav 2027 • Event Strategy, Management & Marketing",
-    kicker: "Events • Creative • Strategy • Execution",
-    shortIntro:
-      "14 years experienced Events & Creative Professional with leadership in event planning and execution. As Founder & Director of First Looks Events Pvt. Ltd., he brings a strong entrepreneurial approach to events.",
-    image: "/images/team/malladi_anand.png",
-    objectPosition: "center 15%",
-    stats: [
-      { value: "14 Years", label: "Events & Creative Experience" },
-      { value: "1500+", label: "Successful Projects Completed" },
-      { value: "1400+", label: "Delighted Clients & Brands" },
-    ],
-    skills: [
-      "Large-Scale Event Strategy",
-      "Creative Planning",
-      "On-Ground Operations",
-      "Artist & Celebrity Management",
-      "Stage & Production Engineering",
-      "Crowd & Attendee Logistics",
-      "Event Marketing",
-    ],
-    overviewTitle: "Creative thinking. Event discipline. Memorable execution.",
-    overviewDescription:
-      "A battle-tested events leader combining creative imagination, production engineering, and disciplined on-ground coordination across more than 1,500 completed live experiences.",
-    experiencesTitle: "Founder-led event expertise.",
-    experiences: [
-      {
-        title: "Founder & Director",
-        organization: "FIRST LOOKS EVENTS PVT LTD",
-        period: "14 Years of Operational Excellence",
-        description:
-          "Directing full-service event strategy, creative planning, production, and ground operations across India.",
-        bullets: [
-          "Orchestrated massive Social Events, Corporate Galas, Musical Festivals, and Fashion Shows.",
-          "Led conceptual design, 3D stage layouts, light/sound engineering, and venue infrastructure.",
-          "Managed top-tier artist logistics, guest protocols, and on-site crowd safety management.",
-        ],
-      },
-    ],
-    achievementsTitle: "High-volume track record & portfolio highlights.",
-    achievements: [
-      {
-        title: "Over 1,500 Completed Projects",
-        description:
-          "Unrivaled operational experience delivering events from initial blueprint and architectural design through on-site execution.",
-      },
-      {
-        title: "1,400+ Delighted Clients",
-        description:
-          "A client-focused approach built upon reliable coordination, creative ingenuity, transparent governance, and flawless delivery.",
-      },
-      {
-        title: "Diverse Event Formats",
-        bullets: [
-          "Center Stage and Grand Stadium Concerts",
-          "High-Capacity Festive Celebrations & Holi Carnivals",
-          "Celebrity Shows & VIP Dignitary Convocations",
-          "Major Corporate Summits & Product Launches",
-          "Musical Festivals, Spiritual Melas, and Cultural Revivals",
-        ],
-      },
-    ],
-    mahotsavRoleTitle: "Event Strategy, Management & Marketing for Mahotsav 2027",
-    mahotsavRoleDescription:
-      "Bringing grand event planning, creative direction, operational infrastructure, and marketing experience to execute the massive scale of the Bhagavad Gita Vishwa Mahotsav 2027.",
-    mahotsavBoxes: [
-      {
-        title: "Central Stage & Production",
-        description:
-          "Engineering world-class stage sets, acoustics, LED backdrops, and technical infrastructure.",
-      },
-      {
-        title: "Crowd & Venue Logistics",
-        description:
-          "Designing seamless attendee flows, VIP protocols, security coordination, and seating arrangements.",
-      },
-      {
-        title: "Event Marketing & Promotion",
-        description:
-          "Mobilizing audience awareness and on-ground engagement to maximize participation across all sessions.",
-      },
-    ],
-    highlightQuote:
-      "Transforming grand spiritual visions into flawless, memorable on-ground realities through 14 years of battle-tested event mastery.",
-  },
+  
   {
     id: "k-satya-prasad",
     name: "K. Satya Prasad (Surya)",

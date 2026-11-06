@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { Globe, Mail, Phone, ExternalLink } from "lucide-react";
+import { Globe, Mail, Phone, MapPin, ExternalLink } from "lucide-react";
 
 interface SocialPlatform {
   name: string;
@@ -239,7 +239,40 @@ export default function ConnectSocialHub() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-3 pt-1">
+          {/* Address */}
+          <div className="flex items-start gap-3 p-3.5 bg-white rounded-xl border border-gold/25 text-left">
+            <div className="w-10 h-10 rounded-full bg-gold/10 text-gold-dark flex items-center justify-center flex-shrink-0 mt-0.5">
+              <MapPin size={18} />
+            </div>
+            <div className="min-w-0 flex-1">
+              <p className="text-[10px] font-sans font-bold uppercase tracking-wider text-ink-muted">
+                Address
+              </p>
+              <p className="text-xs text-ink leading-relaxed font-sans">
+                P. No. 3, 4, 5, 6, Sy. No. 14, Eureka Court, Y R Guda, Srinagar Colony, Khairatabad, Hyderabad – 500073, Telangana
+              </p>
+            </div>
+          </div>
+
+          {/* Mobile / Phone Contact */}
+          <a
+            href="tel:+917331176156"
+            className="flex items-center gap-3 p-3.5 bg-white rounded-xl border border-gold/25 hover:border-gold hover:shadow-sm transition-all duration-200 group text-left"
+          >
+            <div className="w-10 h-10 rounded-full bg-gold/10 text-gold-dark flex items-center justify-center flex-shrink-0 group-hover:bg-gold group-hover:text-white transition-colors">
+              <Phone size={18} />
+            </div>
+            <div className="min-w-0 flex-1">
+              <p className="text-[10px] font-sans font-bold uppercase tracking-wider text-ink-muted">
+                Mobile / Phone
+              </p>
+              <p className="text-xs sm:text-sm font-semibold text-ink group-hover:text-gold-dark transition-colors truncate">
+                +91 7331176156
+              </p>
+            </div>
+          </a>
+
           {/* Email Contact */}
           <a
             href="mailto:divineauraworld9@gmail.com"
@@ -254,26 +287,6 @@ export default function ConnectSocialHub() {
               </p>
               <p className="text-xs sm:text-sm font-semibold text-ink group-hover:text-gold-dark transition-colors truncate">
                 divineauraworld9@gmail.com
-              </p>
-            </div>
-          </a>
-
-          {/* WhatsApp Contact */}
-          <a
-            href="https://wa.me/919949945502"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-3 p-3.5 bg-white rounded-xl border border-gold/25 hover:border-gold hover:shadow-sm transition-all duration-200 group text-left"
-          >
-            <div className="w-10 h-10 rounded-full bg-gold/10 text-gold-dark flex items-center justify-center flex-shrink-0 group-hover:bg-gold group-hover:text-white transition-colors">
-              <Phone size={18} />
-            </div>
-            <div className="min-w-0 flex-1">
-              <p className="text-[10px] font-sans font-bold uppercase tracking-wider text-ink-muted">
-                WhatsApp Support
-              </p>
-              <p className="text-xs sm:text-sm font-semibold text-ink group-hover:text-gold-dark transition-colors truncate">
-                +91 99499 45502
               </p>
             </div>
           </a>

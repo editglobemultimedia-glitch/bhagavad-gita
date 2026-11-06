@@ -50,7 +50,7 @@ const slides = [
   },
   {
     id: 2,
-    image: "/bh2.png",
+    image: "/bh6.png",
     bg: "from-black/75 via-black/50 to-transparent",
     accent: "#D4AF37",
     headline: "18 Countries.\n18 Chapters.\n18 Languages.",
@@ -58,7 +58,7 @@ const slides = [
   },
   {
     id: 3,
-    image: "/bh3.png",
+    image: "/bh8.png",
     bg: "from-black/70 via-black/45 to-black/20",
     accent: "#D4AF37",
     headline: "50,000+ Participants\nAcross the Globe",

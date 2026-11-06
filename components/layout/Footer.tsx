@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Mail } from "lucide-react";
+import { Mail, MapPin, Phone } from "lucide-react";
 
 export default function Footer() {
   return (
@@ -34,9 +34,19 @@ export default function Footer() {
           <div className="lg:col-span-1">
             <h4 className="font-serif text-lg text-ink font-bold mb-4">Contact Us</h4>
             <ul className="space-y-3 text-sm text-ink/80">
-              <li className="flex items-center gap-3 hover:text-gold transition-colors">
-                <Mail size={16} className="text-gold flex-shrink-0" />
-                <a href="mailto:Divineauraworld9@gmail.com" className="break-all">Divineauraworld9@gmail.com</a>
+              <li className="flex items-start gap-2.5">
+                <MapPin size={16} className="text-gold flex-shrink-0 mt-0.5" />
+                <span className="leading-relaxed text-xs sm:text-sm">
+                  P. No. 3, 4, 5, 6, Sy. No. 14, Eureka Court, Y R Guda, Srinagar Colony, Khairatabad, Hyderabad – 500073, Telangana
+                </span>
+              </li>
+              <li className="flex items-center gap-2.5 hover:text-gold transition-colors">
+                <Phone size={15} className="text-gold flex-shrink-0" />
+                <a href="tel:+917331176156" className="text-xs sm:text-sm">+91 7331176156</a>
+              </li>
+              <li className="flex items-center gap-2.5 hover:text-gold transition-colors">
+                <Mail size={15} className="text-gold flex-shrink-0" />
+                <a href="mailto:Divineauraworld9@gmail.com" className="break-all text-xs sm:text-sm">Divineauraworld9@gmail.com</a>
               </li>
             </ul>
           </div>

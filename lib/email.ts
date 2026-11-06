@@ -48,7 +48,7 @@ function baseTemplate(content: string): string {
     <div class="gold-bar"></div>
     <div class="body">${content}</div>
     <div class="footer">
-      <p>© 2026–27 Bhagavad Gita Vishwa Mahotsav Trust. All Rights Reserved.</p>
+      <p>© 2026–27 Aishwarya Sarvahith Foundation. All Rights Reserved.</p>
       <p>Bengaluru, Karnataka, India &nbsp;|&nbsp; info@bgvmahotsav2027.org</p>
     </div>
   </div>

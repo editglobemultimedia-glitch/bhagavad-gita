@@ -10,13 +10,10 @@ export type NavGroup = {
 };
 
 export const navGroups: NavGroup[] = [
-   {
+  {
+    // Mahotsav pages are grouped under Home.
     label: "Home",
     href: "/",
-  },
-  {
-    label: "Mahotsav",
-    href: "/mahotsav",
     children: [
       { label: "Overview", href: "/mahotsav" },
       { label: "Vision & Mission", href: "/mahotsav/vision" },
@@ -27,35 +24,30 @@ export const navGroups: NavGroup[] = [
     ],
   },
   {
-    label: "The Journey",
+    // Journey combines the former The Journey and Experience sections.
+    label: "Journey",
     href: "/global-journey",
     children: [
       { label: "Curtain Raiser", href: "/global-journey/curtain-raiser" },
-      { label: "18 Countries", href: "/global-journey/18-countries" },
-      { label: "18 Chapters", href: "/global-journey/18-chapters" },
-      { label: "18 Languages", href: "/global-journey/18-languages" },
-      { label: "Road to 27 Feb 2027", href: "/global-journey/road-to-mahotsav" },
-    ],
-  },
-  {
-    label: "Experience",
-    href: "/experience",
-    children: [
+      {
+        label: "18 Countries – 18 Chapters – 18 Languages",
+        href: "/global-journey/18-countries",
+      },
       { label: "Venue", href: "/experience/venue" },
-      { label: "Four Pathways", href: "/experience/four-pathways" },
-      { label: "50,000+ Participants", href: "/experience/participants" },
-      { label: "Central Stage", href: "/experience/central-stage" },
-      { label: "Experience", href: "/experience/gita-experience" },
-      { label: "Youth Zone", href: "/experience/youth-zone" },
-      { label: "Cultural & Spiritual Zones", href: "/experience/zones" },
+      { label: "Four Paths", href: "/experience/four-pathways" },
+      { label: "Centre Stage", href: "/experience/central-stage" },
+      { label: "Zones", href: "/experience/zones" },
     ],
   },
   {
-    label: "Programme",
+    label: "Program",
     href: "/programme",
     children: [
       { label: "Curtain Raiser", href: "/programme/curtain-raiser" },
-      { label: "Bhagavad Gita Vishwa Mahotsav", href: "/programme/mega-mahotsav" },
+      {
+        label: "Bhagavad Gita Vishwa Mahotsav",
+        href: "/programme/mega-mahotsav",
+      },
       { label: "Grand Parayana", href: "/programme/grand-parayana" },
       { label: "Youth Gita", href: "/programme/youth-gita" },
       { label: "Global Connect", href: "/programme/global-connect" },
@@ -63,25 +55,25 @@ export const navGroups: NavGroup[] = [
     ],
   },
   {
-    label: "Participate",
+    // Participate and Partners pages are grouped under Participation.
+    label: "Participation",
     href: "/participate",
     children: [
       { label: "Participation", href: "/participate/global" },
-      { label: "Institution Participation", href: "/participate/institution" },
+      {
+        label: "Institution Participation",
+        href: "/participate/institution",
+      },
       { label: "Youth Participation", href: "/participate/youth" },
       { label: "Volunteer", href: "/participate/volunteer" },
       { label: "Gita Parayana", href: "/participate/host-parayana" },
       { label: "Donor", href: "/participate/donor" },
-      
-    ],
-  },
-  {
-    label: "Partners",
-    href: "/partners",
-    children: [
       { label: "Why Partner?", href: "/partners/why-partner" },
       { label: "Founding Patron", href: "/partners/founding-patron" },
-      { label: "Partnership Opportunities", href: "/partners/opportunities" },
+      {
+        label: "Partnership Opportunities",
+        href: "/partners/opportunities",
+      },
       { label: "Sponsorship", href: "/partners/sponsorship" },
       { label: "CSR Partnership", href: "/partners/csr" },
       { label: "Knowledge Partner", href: "/partners/knowledge" },
@@ -99,21 +91,28 @@ export const navGroups: NavGroup[] = [
       { label: "Videos", href: "/media/videos" },
       { label: "Media Coverage", href: "/media/press-kit" },
       { label: "Up Coming", href: "/upcoming events" },
+      { label: "Connect With Us", href: "/connect" },
     ],
   },
   {
-    label: "Connect With Us",
-    href: "/connect",
-  },
-  {
-    label: "About",
+    // About pages are grouped under Our Leadership.
+    label: "Our Leadership",
     href: "/about",
     children: [
       { label: "Organising Body", href: "/about/organising-body" },
       { label: "Advisory Council", href: "/about/advisory-council" },
-      { label: "Spiritual Leadership", href: "/about/spiritual-leadership" },
-      { label: "Organising Committee", href: "/about/organising-committee" },
-      { label: "Institutional Partners", href: "/about/institutional-partners" },
+      {
+        label: "Spiritual Leadership",
+        href: "/about/spiritual-leadership",
+      },
+      {
+        label: "Organising Committee",
+        href: "/about/organising-committee",
+      },
+      {
+        label: "Institutional Partners",
+        href: "/about/institutional-partners",
+      },
       { label: "Our Values", href: "/about/values" },
       { label: "Contact", href: "/about/contact" },
     ],

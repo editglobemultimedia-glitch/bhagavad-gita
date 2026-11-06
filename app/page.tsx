@@ -29,7 +29,7 @@ export default function HomePage() {
       {/* Media Partner Image Section */}
       <section className="w-full bg-[#FAF8F2]">
         <img 
-          src="/partners.png" 
+          src="/bh7.png" 
           alt="Official Partners for Bhagavad Gita Vishwa Mahotsav 2027" 
           className="w-full h-auto block object-cover"
           loading="eager"
