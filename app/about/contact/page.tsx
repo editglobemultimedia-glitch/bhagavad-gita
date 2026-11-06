@@ -51,14 +51,14 @@ export default function ContactPage() {
                       <div className="space-y-1">
                         <div>
                           <span className="text-xs text-ink-muted mr-2">Primary:</span>
-                          <a href="tel:+917331176156" className="text-gold hover:underline text-sm font-sans font-medium">
-                            +91 7331176156
+                          <a href="tel:+917396756590" className="text-gold hover:underline text-sm font-sans font-medium">
+                            +91 73967 56590
                           </a>
                         </div>
                         <div>
                           <span className="text-xs text-ink-muted mr-2">Secondary:</span>
-                          <a href="tel:+917396756590" className="text-gold hover:underline text-sm font-sans font-medium">
-                            +91 73967 56590
+                          <a href="tel:+917331176156" className="text-gold hover:underline text-sm font-sans font-medium">
+                            +91 7331176156
                           </a>
                         </div>
                       </div>
@@ -74,14 +74,14 @@ export default function ContactPage() {
                       <div className="space-y-1">
                         <div>
                           <span className="text-xs text-ink-muted mr-2">Primary:</span>
-                          <a href="mailto:Divineauraworld9@gmail.com" className="text-gold hover:underline text-sm font-sans">
-                            Divineauraworld9@gmail.com
+                          <a href="mailto:Sasi8372@gmail.com" className="text-gold hover:underline text-sm font-sans">
+                            Sasi8372@gmail.com
                           </a>
                         </div>
                         <div>
                           <span className="text-xs text-ink-muted mr-2">Secondary:</span>
-                          <a href="mailto:Sasi8372@gmail.com" className="text-gold hover:underline text-sm font-sans">
-                            Sasi8372@gmail.com
+                          <a href="mailto:Divineauraworld9@gmail.com" className="text-gold hover:underline text-sm font-sans">
+                            Divineauraworld9@gmail.com
                           </a>
                         </div>
                       </div>

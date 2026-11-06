@@ -16,8 +16,8 @@ interface SocialPlatform {
 const socialPlatforms: SocialPlatform[] = [
   {
     name: "WhatsApp",
-    url: "https://wa.me/919949945502",
-    handle: "+91 99499 45502",
+    url: "https://wa.me/917396756590",
+    handle: "+91 73967 56590",
     desktopOffset: { x: 0, y: -140 },
     mobileOffset: { x: 0, y: -98 },
     icon: ({ className = "w-6 h-6" }) => (
@@ -40,8 +40,8 @@ const socialPlatforms: SocialPlatform[] = [
   },
   {
     name: "Email",
-    url: "mailto:divineauraworld9@gmail.com",
-    handle: "divineauraworld9@gmail.com",
+    url: "mailto:Sasi8372@gmail.com",
+    handle: "Sasi8372@gmail.com",
     desktopOffset: { x: 138, y: 30 },
     mobileOffset: { x: 96, y: 21 },
     icon: ({ className = "w-6 h-6" }) => (
@@ -266,13 +266,13 @@ export default function ConnectSocialHub() {
               </p>
               <div className="space-y-0.5 mt-0.5">
                 <div>
-                  <a href="tel:+917331176156" className="text-xs sm:text-sm font-semibold text-ink hover:text-gold-dark transition-colors block">
-                    +91 7331176156
+                  <a href="tel:+917396756590" className="text-xs sm:text-sm font-semibold text-ink hover:text-gold-dark transition-colors block">
+                    +91 73967 56590
                   </a>
                 </div>
                 <div>
-                  <a href="tel:+917396756590" className="text-xs text-ink/80 hover:text-gold-dark transition-colors block">
-                    +91 73967 56590 <span className="text-[10px] text-ink-muted font-sans">(Secondary)</span>
+                  <a href="tel:+917331176156" className="text-xs text-ink/80 hover:text-gold-dark transition-colors block">
+                    +91 7331176156 <span className="text-[10px] text-ink-muted font-sans">(Secondary)</span>
                   </a>
                 </div>
               </div>
@@ -290,13 +290,13 @@ export default function ConnectSocialHub() {
               </p>
               <div className="space-y-0.5 mt-0.5">
                 <div>
-                  <a href="mailto:divineauraworld9@gmail.com" className="text-xs sm:text-sm font-semibold text-ink hover:text-gold-dark transition-colors truncate block">
-                    divineauraworld9@gmail.com
+                  <a href="mailto:Sasi8372@gmail.com" className="text-xs sm:text-sm font-semibold text-ink hover:text-gold-dark transition-colors truncate block">
+                    Sasi8372@gmail.com
                   </a>
                 </div>
                 <div>
-                  <a href="mailto:Sasi8372@gmail.com" className="text-xs text-ink/80 hover:text-gold-dark transition-colors truncate block">
-                    Sasi8372@gmail.com <span className="text-[10px] text-ink-muted font-sans">(Secondary)</span>
+                  <a href="mailto:divineauraworld9@gmail.com" className="text-xs text-ink/80 hover:text-gold-dark transition-colors truncate block">
+                    divineauraworld9@gmail.com <span className="text-[10px] text-ink-muted font-sans">(Secondary)</span>
                   </a>
                 </div>
               </div>

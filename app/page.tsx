@@ -26,7 +26,7 @@ export default function HomePage() {
     <>
       <HeroSlider />
       
-      {/* Organizing Foundation Banner Section */}
+      {/* 1. Organizing Foundation Banner Section */}
       <section className="w-full bg-[#FAF8F2]">
         <img 
           src="/bh7.png" 
@@ -34,6 +34,33 @@ export default function HomePage() {
           className="w-full h-auto block object-cover"
           loading="eager"
           fetchPriority="high"
+        />
+      </section>
+
+      {/* 2. Global Journey 18 Countries & Devotees Section */}
+      <section className="w-full bg-white">
+        <img 
+          src="/bh6.png" 
+          alt="Bhagavad Gita Vishwa Mahotsav 2027 - 18 Countries, 18 Chapters, 18 Languages" 
+          className="w-full h-auto block object-cover"
+        />
+      </section>
+
+      {/* 3. Divine Vishwaroopam of Lord Krishna Section */}
+      <section className="w-full bg-[#FAF8F2]">
+        <img 
+          src="/bh8.png" 
+          alt="Lord Krishna Vishwaroopam - Bhagavad Gita Vishwa Mahotsav" 
+          className="w-full h-auto block object-cover"
+        />
+      </section>
+
+      {/* 4. Aishwarya Sarvahith Foundation - Panchabhuta & Core Philosophy Section */}
+      <section className="w-full bg-white">
+        <img 
+          src="/bh9.png" 
+          alt="Aishwarya Sarvahith Foundation - Panchabhuta and Guiding Principles" 
+          className="w-full h-auto block object-cover"
         />
       </section>
       <OpeningStatement />

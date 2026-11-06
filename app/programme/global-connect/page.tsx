@@ -7,6 +7,7 @@ export default function GlobalConnectPage() {
       badge="26 February 2027"
       title="Global Connect"
       subtitle="Live-streamed chapter recitations connecting all 18 host countries simultaneously — the Gita goes truly global."
+      image="/bh6.png"
       body={[
         "Global Connect Day brings together all 18 host countries in a single live-streamed event — a rolling programme of chapter recitations, country reports, and spiritual greetings that spans every time zone.",
         "Each participating country presents a brief report on their chapter event — the highlights, the community response, and the key teachings they took from their chapter. This creates a rich mosaic of global Gita engagement.",

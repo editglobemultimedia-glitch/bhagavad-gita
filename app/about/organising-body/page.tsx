@@ -18,6 +18,19 @@ export default function OrganisingBodyPage() {
         subtitle="The Aishwarya Sarvahith Foundation — the institutional foundation of the world's largest Gita celebration."
       />
 
+      {/* Official Foundation Banner */}
+      <section className="w-full bg-[#FAF8F2] border-b border-gold/20">
+        <div className="container-main max-w-5xl py-6 md:py-10">
+          <div className="overflow-hidden rounded-2xl shadow-md border border-gold/30">
+            <img
+              src="/bh7.png"
+              alt="Aishwarya Sarvahith Foundation - Organizing Bhagavadgita Vishwa Mahotsav 2027"
+              className="w-full h-auto block object-cover"
+            />
+          </div>
+        </div>
+      </section>
+
       {/* Institutional Overview */}
       <section className="bg-white py-12 md:py-16">
         <div className="container-main max-w-4xl">

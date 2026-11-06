@@ -42,14 +42,6 @@ function Countdown({ targetDate }: { targetDate: string }) {
 const slides = [
   {
     id: 1,
-    image: "/bh5.png",
-    bg: "from-black/70 via-black/50 to-black/30",
-    accent: "#D4AF37",
-    headline: "Bhagavad Gita\nVishwa Mahotsav 2027",
-    sub: "A Global Celebration of the Eternal Wisdom of the Bhagavad Gita",
-  },
-  {
-    id: 2,
     image: "/bh6.png",
     bg: "from-black/75 via-black/50 to-transparent",
     accent: "#D4AF37",
@@ -57,7 +49,7 @@ const slides = [
     sub: "One Gita. One World. One Universal Message.",
   },
   {
-    id: 3,
+    id: 2,
     image: "/bh8.png",
     bg: "from-black/70 via-black/45 to-black/20",
     accent: "#D4AF37",
@@ -65,8 +57,16 @@ const slides = [
     sub: "Join the largest Bhagavad Gita event in history — 27 February 2027",
   },
   {
+    id: 3,
+    image: "/bh7.png",
+    bg: "from-black/70 via-black/50 to-black/30",
+    accent: "#D4AF37",
+    headline: "Bhagavad Gita\nVishwa Mahotsav 2027",
+    sub: "A Global Celebration of the Eternal Wisdom of the Bhagavad Gita",
+  },
+  {
     id: 4,
-    image: "/bh1.png",
+    image: "/bh5.png",
     bg: "from-black/65 via-black/40 to-transparent",
     accent: "#D4AF37",
     headline: "Recitation.\nRealization.\nTransformation.",

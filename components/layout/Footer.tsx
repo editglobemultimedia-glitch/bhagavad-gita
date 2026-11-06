@@ -43,19 +43,19 @@ export default function Footer() {
               <li className="space-y-1">
                 <div className="flex items-center gap-2.5 hover:text-gold transition-colors">
                   <Phone size={15} className="text-gold flex-shrink-0" />
-                  <a href="tel:+917331176156" className="text-xs sm:text-sm">+91 7331176156</a>
+                  <a href="tel:+917396756590" className="text-xs sm:text-sm font-medium">+91 73967 56590</a>
                 </div>
                 <div className="flex items-center gap-2.5 pl-6 hover:text-gold transition-colors text-ink/75">
-                  <a href="tel:+917396756590" className="text-xs sm:text-sm">+91 73967 56590 <span className="text-[11px] text-ink/50 font-sans">(Sec)</span></a>
+                  <a href="tel:+917331176156" className="text-xs sm:text-sm">+91 7331176156 <span className="text-[11px] text-ink/50 font-sans">(Sec)</span></a>
                 </div>
               </li>
               <li className="space-y-1">
                 <div className="flex items-center gap-2.5 hover:text-gold transition-colors">
                   <Mail size={15} className="text-gold flex-shrink-0" />
-                  <a href="mailto:Divineauraworld9@gmail.com" className="break-all text-xs sm:text-sm">Divineauraworld9@gmail.com</a>
+                  <a href="mailto:Sasi8372@gmail.com" className="break-all text-xs sm:text-sm font-medium">Sasi8372@gmail.com</a>
                 </div>
                 <div className="flex items-center gap-2.5 pl-6 hover:text-gold transition-colors text-ink/75">
-                  <a href="mailto:Sasi8372@gmail.com" className="break-all text-xs sm:text-sm">Sasi8372@gmail.com <span className="text-[11px] text-ink/50 font-sans">(Sec)</span></a>
+                  <a href="mailto:Divineauraworld9@gmail.com" className="break-all text-xs sm:text-sm">Divineauraworld9@gmail.com <span className="text-[11px] text-ink/50 font-sans">(Sec)</span></a>
                 </div>
               </li>
             </ul>

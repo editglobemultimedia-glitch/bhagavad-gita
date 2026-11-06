@@ -9,6 +9,7 @@ export default function MegaMahotsavPage() {
       badge="27 February 2027"
       title="Bhagavad Gita Vishwa Mahotsav"
       subtitle="The grand culmination of the 18-month global journey — the largest Bhagavad Gita celebration in history."
+      image="/bh8.png"
       body={[
         "The Bhagavad Gita Vishwa Mahotsav on 27 February 2027 is the culmination of eighteen months of preparation, pilgrimage, and practice. It is not merely a single day's event — it is the convergence of every stream of the global journey into one magnificent, unified expression.",
         "50,000+ registered participants from all 18 countries gather at the venue, joined virtually by millions around the world. The day begins before dawn with a meditative sunrise recitation and unfolds through a full programme of spiritual, cultural, and ceremonial events.",
