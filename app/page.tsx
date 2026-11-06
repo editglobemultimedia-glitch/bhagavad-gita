@@ -26,11 +26,11 @@ export default function HomePage() {
     <>
       <HeroSlider />
       
-      {/* Media Partner Image Section */}
+      {/* Organizing Foundation Banner Section */}
       <section className="w-full bg-[#FAF8F2]">
         <img 
           src="/bh7.png" 
-          alt="Official Partners for Bhagavad Gita Vishwa Mahotsav 2027" 
+          alt="Aishwarya Sarvahith Foundation - Organizing Bhagavadgita Vishwa Mahotsav 2027" 
           className="w-full h-auto block object-cover"
           loading="eager"
           fetchPriority="high"

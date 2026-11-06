@@ -47,10 +47,21 @@ export default function ContactPage() {
                       <Phone size={18} className="text-gold" />
                     </div>
                     <div>
-                      <p className="font-sans font-semibold text-ink text-sm mb-1">Mobile No.</p>
-                      <a href="tel:+917331176156" className="text-gold hover:underline text-sm font-sans font-medium">
-                        +91 7331176156
-                      </a>
+                      <p className="font-sans font-semibold text-ink text-sm mb-1">Mobile / Phone</p>
+                      <div className="space-y-1">
+                        <div>
+                          <span className="text-xs text-ink-muted mr-2">Primary:</span>
+                          <a href="tel:+917331176156" className="text-gold hover:underline text-sm font-sans font-medium">
+                            +91 7331176156
+                          </a>
+                        </div>
+                        <div>
+                          <span className="text-xs text-ink-muted mr-2">Secondary:</span>
+                          <a href="tel:+917396756590" className="text-gold hover:underline text-sm font-sans font-medium">
+                            +91 73967 56590
+                          </a>
+                        </div>
+                      </div>
                     </div>
                   </div>
 
@@ -60,9 +71,20 @@ export default function ContactPage() {
                     </div>
                     <div>
                       <p className="font-sans font-semibold text-ink text-sm mb-1">Email</p>
-                      <a href="mailto:Divineauraworld9@gmail.com" className="text-gold hover:underline text-sm font-sans">
-                        Divineauraworld9@gmail.com
-                      </a>
+                      <div className="space-y-1">
+                        <div>
+                          <span className="text-xs text-ink-muted mr-2">Primary:</span>
+                          <a href="mailto:Divineauraworld9@gmail.com" className="text-gold hover:underline text-sm font-sans">
+                            Divineauraworld9@gmail.com
+                          </a>
+                        </div>
+                        <div>
+                          <span className="text-xs text-ink-muted mr-2">Secondary:</span>
+                          <a href="mailto:Sasi8372@gmail.com" className="text-gold hover:underline text-sm font-sans">
+                            Sasi8372@gmail.com
+                          </a>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

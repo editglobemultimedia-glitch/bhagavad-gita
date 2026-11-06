@@ -40,13 +40,23 @@ export default function Footer() {
                   P. No. 3, 4, 5, 6, Sy. No. 14, Eureka Court, Y R Guda, Srinagar Colony, Khairatabad, Hyderabad – 500073, Telangana
                 </span>
               </li>
-              <li className="flex items-center gap-2.5 hover:text-gold transition-colors">
-                <Phone size={15} className="text-gold flex-shrink-0" />
-                <a href="tel:+917331176156" className="text-xs sm:text-sm">+91 7331176156</a>
+              <li className="space-y-1">
+                <div className="flex items-center gap-2.5 hover:text-gold transition-colors">
+                  <Phone size={15} className="text-gold flex-shrink-0" />
+                  <a href="tel:+917331176156" className="text-xs sm:text-sm">+91 7331176156</a>
+                </div>
+                <div className="flex items-center gap-2.5 pl-6 hover:text-gold transition-colors text-ink/75">
+                  <a href="tel:+917396756590" className="text-xs sm:text-sm">+91 73967 56590 <span className="text-[11px] text-ink/50 font-sans">(Sec)</span></a>
+                </div>
               </li>
-              <li className="flex items-center gap-2.5 hover:text-gold transition-colors">
-                <Mail size={15} className="text-gold flex-shrink-0" />
-                <a href="mailto:Divineauraworld9@gmail.com" className="break-all text-xs sm:text-sm">Divineauraworld9@gmail.com</a>
+              <li className="space-y-1">
+                <div className="flex items-center gap-2.5 hover:text-gold transition-colors">
+                  <Mail size={15} className="text-gold flex-shrink-0" />
+                  <a href="mailto:Divineauraworld9@gmail.com" className="break-all text-xs sm:text-sm">Divineauraworld9@gmail.com</a>
+                </div>
+                <div className="flex items-center gap-2.5 pl-6 hover:text-gold transition-colors text-ink/75">
+                  <a href="mailto:Sasi8372@gmail.com" className="break-all text-xs sm:text-sm">Sasi8372@gmail.com <span className="text-[11px] text-ink/50 font-sans">(Sec)</span></a>
+                </div>
               </li>
             </ul>
           </div>

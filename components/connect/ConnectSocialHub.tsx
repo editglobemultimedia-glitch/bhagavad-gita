@@ -256,40 +256,52 @@ export default function ConnectSocialHub() {
           </div>
 
           {/* Mobile / Phone Contact */}
-          <a
-            href="tel:+917331176156"
-            className="flex items-center gap-3 p-3.5 bg-white rounded-xl border border-gold/25 hover:border-gold hover:shadow-sm transition-all duration-200 group text-left"
-          >
-            <div className="w-10 h-10 rounded-full bg-gold/10 text-gold-dark flex items-center justify-center flex-shrink-0 group-hover:bg-gold group-hover:text-white transition-colors">
+          <div className="flex items-start gap-3 p-3.5 bg-white rounded-xl border border-gold/25 text-left">
+            <div className="w-10 h-10 rounded-full bg-gold/10 text-gold-dark flex items-center justify-center flex-shrink-0 mt-0.5">
               <Phone size={18} />
             </div>
             <div className="min-w-0 flex-1">
               <p className="text-[10px] font-sans font-bold uppercase tracking-wider text-ink-muted">
                 Mobile / Phone
               </p>
-              <p className="text-xs sm:text-sm font-semibold text-ink group-hover:text-gold-dark transition-colors truncate">
-                +91 7331176156
-              </p>
+              <div className="space-y-0.5 mt-0.5">
+                <div>
+                  <a href="tel:+917331176156" className="text-xs sm:text-sm font-semibold text-ink hover:text-gold-dark transition-colors block">
+                    +91 7331176156
+                  </a>
+                </div>
+                <div>
+                  <a href="tel:+917396756590" className="text-xs text-ink/80 hover:text-gold-dark transition-colors block">
+                    +91 73967 56590 <span className="text-[10px] text-ink-muted font-sans">(Secondary)</span>
+                  </a>
+                </div>
+              </div>
             </div>
-          </a>
+          </div>
 
           {/* Email Contact */}
-          <a
-            href="mailto:divineauraworld9@gmail.com"
-            className="flex items-center gap-3 p-3.5 bg-white rounded-xl border border-gold/25 hover:border-gold hover:shadow-sm transition-all duration-200 group text-left"
-          >
-            <div className="w-10 h-10 rounded-full bg-gold/10 text-gold-dark flex items-center justify-center flex-shrink-0 group-hover:bg-gold group-hover:text-white transition-colors">
+          <div className="flex items-start gap-3 p-3.5 bg-white rounded-xl border border-gold/25 text-left">
+            <div className="w-10 h-10 rounded-full bg-gold/10 text-gold-dark flex items-center justify-center flex-shrink-0 mt-0.5">
               <Mail size={18} />
             </div>
             <div className="min-w-0 flex-1">
               <p className="text-[10px] font-sans font-bold uppercase tracking-wider text-ink-muted">
                 Email Inquiries
               </p>
-              <p className="text-xs sm:text-sm font-semibold text-ink group-hover:text-gold-dark transition-colors truncate">
-                divineauraworld9@gmail.com
-              </p>
+              <div className="space-y-0.5 mt-0.5">
+                <div>
+                  <a href="mailto:divineauraworld9@gmail.com" className="text-xs sm:text-sm font-semibold text-ink hover:text-gold-dark transition-colors truncate block">
+                    divineauraworld9@gmail.com
+                  </a>
+                </div>
+                <div>
+                  <a href="mailto:Sasi8372@gmail.com" className="text-xs text-ink/80 hover:text-gold-dark transition-colors truncate block">
+                    Sasi8372@gmail.com <span className="text-[10px] text-ink-muted font-sans">(Secondary)</span>
+                  </a>
+                </div>
+              </div>
             </div>
-          </a>
+          </div>
         </div>
       </div>
     </div>
