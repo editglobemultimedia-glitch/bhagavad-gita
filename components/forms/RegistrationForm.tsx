@@ -6,8 +6,9 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import toast from "react-hot-toast";
 import { motion } from "framer-motion";
-import { CheckCircle } from "lucide-react";
+import { CheckCircle, ShieldCheck, FileText, ArrowRight } from "lucide-react";
 import ReceiptTicket from "@/components/ui/ReceiptTicket";
+import PolicyModal, { type PolicyType } from "@/components/modals/PolicyModal";
 
 // ── Schemas ────────────────────────────────────────────────────────────────
 const formSchema = z.object({
@@ -22,6 +23,9 @@ const formSchema = z.object({
   noOfPersons: z.coerce.number().optional(),
   assistance: z.array(z.string()).optional(),
   registerForEvent: z.array(z.string()).min(1, "Select at least one event"),
+  consentAccepted: z.boolean().refine((val) => val === true, {
+    message: "You must agree to the Terms & Conditions, Privacy Policy, and Refund & Cancellation Policy to proceed."
+  }),
 });
 
 type FormData = z.infer<typeof formSchema>;
@@ -35,6 +39,13 @@ const countries = [
 export default function RegistrationForm({ isDonorFlow = false }: { isDonorFlow?: boolean }) {
   const [submittedData, setSubmittedData] = useState<(FormData & { id: string }) | null>(null);
   const [loading, setLoading] = useState(false);
+  const [policyModalOpen, setPolicyModalOpen] = useState(false);
+  const [selectedPolicy, setSelectedPolicy] = useState<PolicyType>("refund");
+
+  const openPolicy = (type: PolicyType) => {
+    setSelectedPolicy(type);
+    setPolicyModalOpen(true);
+  };
 
   const form = useForm<FormData>({ 
     resolver: zodResolver(formSchema) as any,
@@ -42,6 +53,7 @@ export default function RegistrationForm({ isDonorFlow = false }: { isDonorFlow?
     defaultValues: {
       assistance: [],
       registerForEvent: [],
+      consentAccepted: false,
     }
   });
   
@@ -50,10 +62,19 @@ export default function RegistrationForm({ isDonorFlow = false }: { isDonorFlow?
   const onSubmit = async (data: FormData) => {
     setLoading(true);
     try {
+      const payload = {
+        ...data,
+        refund_policy_accepted: true,
+        refund_policy_accepted_at: new Date().toISOString(),
+        refund_policy_version: "2026-11-05",
+        terms_accepted: true,
+        privacy_policy_accepted: true,
+      };
+
       const res = await fetch("/api/register", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
+        body: JSON.stringify(payload),
       });
       if (res.ok) {
         const json = await res.json();
@@ -258,7 +279,83 @@ export default function RegistrationForm({ isDonorFlow = false }: { isDonorFlow?
             </div>
           </div>
 
-          <div className="pt-4">
+          {/* Refund & Cancellation Policy Notice & Mandatory Consent */}
+          <div className="pt-2">
+            <div className="p-4 sm:p-5 rounded-xl bg-[#FAF8F3] border border-gold/30 space-y-3.5 shadow-sm">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 border-b border-gold/15 pb-2.5">
+                <span className="text-xs font-sans font-semibold text-gold-dark uppercase tracking-wider flex items-center gap-1.5">
+                  <ShieldCheck size={15} className="text-gold" />
+                  Transparency &amp; Governance
+                </span>
+                <button
+                  type="button"
+                  onClick={() => openPolicy("refund")}
+                  className="text-xs text-gold-dark hover:text-ink font-semibold underline text-left sm:text-right"
+                >
+                  Read Refund &amp; Cancellation Policy ↗
+                </button>
+              </div>
+
+              <div className="flex items-start gap-3">
+                <input
+                  id="consentCheckbox"
+                  type="checkbox"
+                  {...register("consentAccepted")}
+                  className="w-4 h-4 mt-1 text-gold focus:ring-gold border-gray-300 rounded cursor-pointer flex-shrink-0"
+                />
+                <label
+                  htmlFor="consentCheckbox"
+                  className="text-xs sm:text-sm font-sans text-ink leading-relaxed cursor-pointer select-none"
+                >
+                  I have read and agree to the{" "}
+                  <button
+                    type="button"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      e.stopPropagation();
+                      openPolicy("terms");
+                    }}
+                    className="text-gold-dark font-semibold underline hover:text-ink transition-colors inline"
+                  >
+                    Terms &amp; Conditions
+                  </button>
+                  ,{" "}
+                  <button
+                    type="button"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      e.stopPropagation();
+                      openPolicy("privacy");
+                    }}
+                    className="text-gold-dark font-semibold underline hover:text-ink transition-colors inline"
+                  >
+                    Privacy Policy
+                  </button>
+                  , and{" "}
+                  <button
+                    type="button"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      e.stopPropagation();
+                      openPolicy("refund");
+                    }}
+                    className="text-gold-dark font-semibold underline hover:text-ink transition-colors inline"
+                  >
+                    Refund &amp; Cancellation Policy
+                  </button>
+                  .
+                </label>
+              </div>
+
+              {errors.consentAccepted && (
+                <div className="bg-red-50 border border-red-200 text-red-600 text-xs font-sans rounded-md px-3 py-2">
+                  ⚠️ {errors.consentAccepted.message}
+                </div>
+              )}
+            </div>
+          </div>
+
+          <div className="pt-2">
             <button
               type="submit"
               disabled={loading}
@@ -273,6 +370,13 @@ export default function RegistrationForm({ isDonorFlow = false }: { isDonorFlow?
           </p>
         </form>
       </motion.div>
+
+      {/* Interactive Policy Modal */}
+      <PolicyModal
+        isOpen={policyModalOpen}
+        onClose={() => setPolicyModalOpen(false)}
+        initialPolicy={selectedPolicy}
+      />
     </div>
   );
 }

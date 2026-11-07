@@ -13,6 +13,11 @@ const schema = z.object({
   city: z.string().min(1),
   assistance: z.array(z.string()).optional().default([]),
   registerForEvent: z.array(z.string()).min(1),
+  consentAccepted: z.boolean().optional(),
+  refund_policy_accepted: z.boolean().optional(),
+  refund_policy_version: z.string().optional(),
+  terms_accepted: z.boolean().optional(),
+  privacy_policy_accepted: z.boolean().optional(),
 });
 
 function getISTTimestamp() {
@@ -35,11 +40,28 @@ export async function POST(req: NextRequest) {
     const body = await req.json();
     const data = schema.parse(body);
 
+    // Mandatory consent validation on backend
+    const refundAccepted = Boolean(data.refund_policy_accepted ?? data.consentAccepted);
+    const termsAccepted = Boolean(data.terms_accepted ?? data.consentAccepted);
+    const privacyAccepted = Boolean(data.privacy_policy_accepted ?? data.consentAccepted);
+
+    if (!refundAccepted || !termsAccepted || !privacyAccepted) {
+      return NextResponse.json(
+        {
+          message: "You must accept the Terms & Conditions, Privacy Policy, and Refund & Cancellation Policy to complete registration.",
+          error: "POLICY_CONSENT_REQUIRED"
+        },
+        { status: 422 }
+      );
+    }
+
     const timestamp = getISTTimestamp();
 
     let registrationId = `REG-${Date.now().toString().slice(-6)}`;
     try {
       const dbType = data.registrationType;
+      const policyVersion = data.refund_policy_version || "2026-11-05";
+      const now = new Date();
 
       const { neon } = require("@neondatabase/serverless");
       const sql = neon(process.env.DATABASE_URL || "postgresql://neondb_owner:npg_3qNiDTwWsx4f@ep-muddy-flower-ax0xloce-pooler.c-4.us-east-2.aws.neon.tech/neondb?sslmode=require&channel_binding=require&pgbouncer=true");
@@ -47,8 +69,20 @@ export async function POST(req: NextRequest) {
       const cuid = "cuid_" + Date.now().toString(36) + Math.random().toString(36).substr(2);
       
       await sql`
-        INSERT INTO "Registration" (id, type, name, email, phone, country, city, "noOfPersons", "assistance", "registerForEvent", "createdAt")
-        VALUES (${cuid}, ${dbType}, ${data.name}, ${data.email}, ${data.phone}, ${data.country}, ${data.city}, ${data.noOfPersons}, ${data.assistance}, ${data.registerForEvent}, NOW())
+        INSERT INTO "Registration" (
+          id, type, name, email, phone, country, city, 
+          "noOfPersons", "assistance", "registerForEvent", 
+          "refund_policy_accepted", "refund_policy_accepted_at", "refund_policy_version",
+          "terms_accepted", "privacy_policy_accepted", 
+          "createdAt"
+        )
+        VALUES (
+          ${cuid}, ${dbType}, ${data.name}, ${data.email}, ${data.phone}, ${data.country}, ${data.city}, 
+          ${data.noOfPersons}, ${data.assistance}, ${data.registerForEvent}, 
+          ${refundAccepted}, ${now}, ${policyVersion},
+          ${termsAccepted}, ${privacyAccepted}, 
+          NOW()
+        )
       `;
       registrationId = cuid;
     } catch (dbErr) {

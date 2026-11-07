@@ -11,14 +11,22 @@ datasource db {
 
 // ── Registrations ─────────────────────────────────────────────────────────
 model Registration {
-  id        String   @id @default(cuid())
-  type      RegistrationType
-  name      String
-  email     String
-  phone     String
-  country   String
-  city      String
-  createdAt DateTime @default(now())
+  id                     String           @id @default(cuid())
+  type                   RegistrationType
+  name                   String
+  email                  String
+  phone                  String
+  country                String
+  city                   String
+  noOfPersons            Int?             @default(1)
+  assistance             String[]         @default([])
+  registerForEvent       String[]         @default([])
+  refundPolicyAccepted   Boolean          @default(false) @map("refund_policy_accepted")
+  refundPolicyAcceptedAt DateTime?        @map("refund_policy_accepted_at")
+  refundPolicyVersion    String?          @map("refund_policy_version")
+  termsAccepted          Boolean          @default(false) @map("terms_accepted")
+  privacyPolicyAccepted  Boolean          @default(false) @map("privacy_policy_accepted")
+  createdAt              DateTime         @default(now())
 
   @@index([email])
   @@index([type])

@@ -3,6 +3,7 @@ import PageHero from "@/components/ui/PageHero";
 import ContactForm from "@/components/forms/ContactForm";
 import LiveVisitorCount from "@/components/ui/LiveVisitorCount";
 import { Mail, Phone, MapPin, Users, MessageCircle, Camera, PlayCircle } from "lucide-react";
+import { organizationConfig } from "@/lib/organizationConfig";
 
 export const metadata: Metadata = {
   title: "Contact Us",
@@ -34,10 +35,9 @@ export default function ContactPage() {
                     <div>
                       <p className="font-sans font-semibold text-ink text-sm mb-1">Registered Office</p>
                       <address className="not-italic text-sm font-sans text-ink-muted leading-relaxed">
-                        P. No. 3, 4, 5, 6, Sy. No. 14,<br />
-                        Eureka Court, Y R Guda,<br />
-                        Srinagar Colony, Khairatabad,<br />
-                        Hyderabad – 500073, Telangana
+                        {organizationConfig.registeredAddress.line1},<br />
+                        {organizationConfig.registeredAddress.line2},<br />
+                        {organizationConfig.registeredAddress.city} – {organizationConfig.registeredAddress.pincode}, {organizationConfig.registeredAddress.state}, {organizationConfig.registeredAddress.country}
                       </address>
                     </div>
                   </div>
@@ -51,14 +51,14 @@ export default function ContactPage() {
                       <div className="space-y-1">
                         <div>
                           <span className="text-xs text-ink-muted mr-2">Primary:</span>
-                          <a href="tel:+917396756590" className="text-gold hover:underline text-sm font-sans font-medium">
-                            +91 73967 56590
+                          <a href={`tel:${organizationConfig.officialPhone.replace(/\s+/g, '')}`} className="text-gold hover:underline text-sm font-sans font-medium">
+                            {organizationConfig.officialPhone}
                           </a>
                         </div>
                         <div>
                           <span className="text-xs text-ink-muted mr-2">Secondary:</span>
-                          <a href="tel:+917331176156" className="text-gold hover:underline text-sm font-sans font-medium">
-                            +91 7331176156
+                          <a href={`tel:${organizationConfig.secondaryPhone.replace(/\s+/g, '')}`} className="text-gold hover:underline text-sm font-sans font-medium">
+                            {organizationConfig.secondaryPhone}
                           </a>
                         </div>
                       </div>
@@ -74,14 +74,14 @@ export default function ContactPage() {
                       <div className="space-y-1">
                         <div>
                           <span className="text-xs text-ink-muted mr-2">Primary:</span>
-                          <a href="mailto:Sasi8372@gmail.com" className="text-gold hover:underline text-sm font-sans">
-                            Sasi8372@gmail.com
+                          <a href={`mailto:${organizationConfig.officialEmail}`} className="text-gold hover:underline text-sm font-sans">
+                            {organizationConfig.officialEmail}
                           </a>
                         </div>
                         <div>
                           <span className="text-xs text-ink-muted mr-2">Secondary:</span>
-                          <a href="mailto:Divineauraworld9@gmail.com" className="text-gold hover:underline text-sm font-sans">
-                            Divineauraworld9@gmail.com
+                          <a href={`mailto:${organizationConfig.secondaryEmail}`} className="text-gold hover:underline text-sm font-sans">
+                            {organizationConfig.secondaryEmail}
                           </a>
                         </div>
                       </div>

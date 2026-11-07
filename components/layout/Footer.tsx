@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { Mail, MapPin, Phone } from "lucide-react";
+import { organizationConfig } from "@/lib/organizationConfig";
 
 export default function Footer() {
   return (
@@ -27,6 +28,9 @@ export default function Footer() {
               <li><Link href="/connect" className="hover:text-gold transition-colors">Connect With Us</Link></li>
               <li><Link href="/global-journey/18-countries" className="hover:text-gold transition-colors">18 Countries</Link></li>
               <li><Link href="/participate/register" className="hover:text-gold transition-colors">Register</Link></li>
+              <li><Link href="/privacy-policy" className="hover:text-gold transition-colors">Privacy Policy</Link></li>
+              <li><Link href="/terms-conditions" className="hover:text-gold transition-colors">Terms and Conditions</Link></li>
+              <li><Link href="/cancellation-refund-policy" className="hover:text-gold transition-colors">Cancellation and refund policy</Link></li>
             </ul>
           </div>
 
@@ -37,25 +41,33 @@ export default function Footer() {
               <li className="flex items-start gap-2.5">
                 <MapPin size={16} className="text-gold flex-shrink-0 mt-0.5" />
                 <span className="leading-relaxed text-xs sm:text-sm">
-                  P. No. 3, 4, 5, 6, Sy. No. 14, Eureka Court, Y R Guda, Srinagar Colony, Khairatabad, Hyderabad – 500073, Telangana
+                  {organizationConfig.registeredAddress.full}
                 </span>
               </li>
               <li className="space-y-1">
                 <div className="flex items-center gap-2.5 hover:text-gold transition-colors">
                   <Phone size={15} className="text-gold flex-shrink-0" />
-                  <a href="tel:+917396756590" className="text-xs sm:text-sm font-medium">+91 73967 56590</a>
+                  <a href={`tel:${organizationConfig.officialPhone.replace(/\s+/g, '')}`} className="text-xs sm:text-sm font-medium">
+                    {organizationConfig.officialPhone}
+                  </a>
                 </div>
                 <div className="flex items-center gap-2.5 pl-6 hover:text-gold transition-colors text-ink/75">
-                  <a href="tel:+917331176156" className="text-xs sm:text-sm">+91 7331176156 <span className="text-[11px] text-ink/50 font-sans">(Sec)</span></a>
+                  <a href={`tel:${organizationConfig.secondaryPhone.replace(/\s+/g, '')}`} className="text-xs sm:text-sm">
+                    {organizationConfig.secondaryPhone} <span className="text-[11px] text-ink/50 font-sans">(Sec)</span>
+                  </a>
                 </div>
               </li>
               <li className="space-y-1">
                 <div className="flex items-center gap-2.5 hover:text-gold transition-colors">
                   <Mail size={15} className="text-gold flex-shrink-0" />
-                  <a href="mailto:Sasi8372@gmail.com" className="break-all text-xs sm:text-sm font-medium">Sasi8372@gmail.com</a>
+                  <a href={`mailto:${organizationConfig.officialEmail}`} className="break-all text-xs sm:text-sm font-medium">
+                    {organizationConfig.officialEmail}
+                  </a>
                 </div>
                 <div className="flex items-center gap-2.5 pl-6 hover:text-gold transition-colors text-ink/75">
-                  <a href="mailto:Divineauraworld9@gmail.com" className="break-all text-xs sm:text-sm">Divineauraworld9@gmail.com <span className="text-[11px] text-ink/50 font-sans">(Sec)</span></a>
+                  <a href={`mailto:${organizationConfig.secondaryEmail}`} className="break-all text-xs sm:text-sm">
+                    {organizationConfig.secondaryEmail} <span className="text-[11px] text-ink/50 font-sans">(Sec)</span>
+                  </a>
                 </div>
               </li>
             </ul>
@@ -95,9 +107,12 @@ export default function Footer() {
 
         <div className="mt-12 pt-8 border-t border-gold/10 text-center text-sm text-ink/50 flex flex-col md:flex-row justify-between items-center gap-4">
           <p>© {new Date().getFullYear()} Bhagavad Gita Vishwa Mahotsav. All rights reserved.</p>
-          <div className="flex gap-4">
-            <Link href="#" className="hover:text-gold transition-colors">Privacy Policy</Link>
-            <Link href="#" className="hover:text-gold transition-colors">Terms of Service</Link>
+          <div className="flex flex-wrap justify-center gap-3 sm:gap-4 text-xs sm:text-sm">
+            <Link href="/privacy-policy" className="hover:text-gold transition-colors">Privacy Policy</Link>
+            <span className="text-ink/30">•</span>
+            <Link href="/terms-conditions" className="hover:text-gold transition-colors">Terms and Conditions</Link>
+            <span className="text-ink/30">•</span>
+            <Link href="/cancellation-refund-policy" className="hover:text-gold transition-colors">Cancellation and refund policy</Link>
           </div>
         </div>
       </div>

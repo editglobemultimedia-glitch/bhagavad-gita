@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import { Globe, Mail, Phone, MapPin, ExternalLink } from "lucide-react";
+import { organizationConfig } from "@/lib/organizationConfig";
 
 interface SocialPlatform {
   name: string;
@@ -266,13 +267,13 @@ export default function ConnectSocialHub() {
               </p>
               <div className="space-y-0.5 mt-0.5">
                 <div>
-                  <a href="tel:+917396756590" className="text-xs sm:text-sm font-semibold text-ink hover:text-gold-dark transition-colors block">
-                    +91 73967 56590
+                  <a href={`tel:${organizationConfig.officialPhone.replace(/\s+/g, '')}`} className="text-xs sm:text-sm font-semibold text-ink hover:text-gold-dark transition-colors block">
+                    {organizationConfig.officialPhone}
                   </a>
                 </div>
                 <div>
-                  <a href="tel:+917331176156" className="text-xs text-ink/80 hover:text-gold-dark transition-colors block">
-                    +91 7331176156 <span className="text-[10px] text-ink-muted font-sans">(Secondary)</span>
+                  <a href={`tel:${organizationConfig.secondaryPhone.replace(/\s+/g, '')}`} className="text-xs text-ink/80 hover:text-gold-dark transition-colors block">
+                    {organizationConfig.secondaryPhone} <span className="text-[10px] text-ink-muted font-sans">(Secondary)</span>
                   </a>
                 </div>
               </div>
@@ -290,13 +291,13 @@ export default function ConnectSocialHub() {
               </p>
               <div className="space-y-0.5 mt-0.5">
                 <div>
-                  <a href="mailto:Sasi8372@gmail.com" className="text-xs sm:text-sm font-semibold text-ink hover:text-gold-dark transition-colors truncate block">
-                    Sasi8372@gmail.com
+                  <a href={`mailto:${organizationConfig.officialEmail}`} className="text-xs sm:text-sm font-semibold text-ink hover:text-gold-dark transition-colors truncate block">
+                    {organizationConfig.officialEmail}
                   </a>
                 </div>
                 <div>
-                  <a href="mailto:divineauraworld9@gmail.com" className="text-xs text-ink/80 hover:text-gold-dark transition-colors truncate block">
-                    divineauraworld9@gmail.com <span className="text-[10px] text-ink-muted font-sans">(Secondary)</span>
+                  <a href={`mailto:${organizationConfig.secondaryEmail}`} className="text-xs text-ink/80 hover:text-gold-dark transition-colors truncate block">
+                    {organizationConfig.secondaryEmail} <span className="text-[10px] text-ink-muted font-sans">(Secondary)</span>
                   </a>
                 </div>
               </div>

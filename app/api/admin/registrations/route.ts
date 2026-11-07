@@ -28,7 +28,12 @@ export async function GET(req: NextRequest) {
 
     // CSV export
     if (format === "csv") {
-      const headers = ["id", "type", "name", "email", "phone", "country", "city", "noOfPersons", "assistance", "registerForEvent", "createdAt"];
+      const headers = [
+        "id", "type", "name", "email", "phone", "country", "city", 
+        "noOfPersons", "assistance", "registerForEvent", 
+        "refund_policy_accepted", "refund_policy_accepted_at", "refund_policy_version", 
+        "terms_accepted", "privacy_policy_accepted", "createdAt"
+      ];
       const rows = (registrations as Record<string, unknown>[]).map((r) => {
         return headers.map((h) => {
           let val = (r as Record<string, unknown>)[h] ?? "";
