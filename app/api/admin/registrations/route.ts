@@ -30,13 +30,14 @@ export async function GET(req: NextRequest) {
     if (format === "csv") {
       const headers = [
         "id", "type", "name", "email", "phone", "country", "city", 
-        "noOfPersons", "assistance", "registerForEvent", 
+        "noOfPersons", "donation_amount", "currency", "payment_status",
+        "assistance", "registerForEvent", 
         "refund_policy_accepted", "refund_policy_accepted_at", "refund_policy_version", 
         "terms_accepted", "privacy_policy_accepted", "createdAt"
       ];
       const rows = (registrations as Record<string, unknown>[]).map((r) => {
         return headers.map((h) => {
-          let val = (r as Record<string, unknown>)[h] ?? "";
+          let val = (r as Record<string, unknown>)[h] ?? (r as Record<string, unknown>)[h.replace(/_([a-z])/g, (_, c) => c.toUpperCase())] ?? "";
           if (Array.isArray(val)) val = val.join(" | ");
           return JSON.stringify(val);
         }).join(",");

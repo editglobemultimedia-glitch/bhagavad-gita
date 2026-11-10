@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
@@ -21,6 +22,16 @@ const formSchema = z.object({
     message: "Please select a registration type"
   }),
   noOfPersons: z.coerce.number().optional(),
+  donationAmount: z
+    .union([z.string(), z.number()])
+    .transform((val) => String(val).trim())
+    .refine((val) => val.length > 0, "Donation amount is required")
+    .refine((val) => !isNaN(Number(val)), "Please enter a valid numerical amount")
+    .refine((val) => Number(val) > 0, "Donation amount must be greater than zero")
+    .refine(
+      (val) => /^\d+(\.\d{1,2})?$/.test(val),
+      "Donation amount can have up to 2 decimal places only"
+    ),
   assistance: z.array(z.string()).optional(),
   registerForEvent: z.array(z.string()).min(1, "Select at least one event"),
   consentAccepted: z.boolean().refine((val) => val === true, {
@@ -37,6 +48,7 @@ const countries = [
 ];
 
 export default function RegistrationForm({ isDonorFlow = false }: { isDonorFlow?: boolean }) {
+  const router = useRouter();
   const [submittedData, setSubmittedData] = useState<(FormData & { id: string }) | null>(null);
   const [loading, setLoading] = useState(false);
   const [policyModalOpen, setPolicyModalOpen] = useState(false);
@@ -51,6 +63,7 @@ export default function RegistrationForm({ isDonorFlow = false }: { isDonorFlow?
     resolver: zodResolver(formSchema) as any,
     mode: "onSubmit",
     defaultValues: {
+      donationAmount: "",
       assistance: [],
       registerForEvent: [],
       consentAccepted: false,
@@ -64,6 +77,7 @@ export default function RegistrationForm({ isDonorFlow = false }: { isDonorFlow?
     try {
       const payload = {
         ...data,
+        donationAmount: Number(data.donationAmount),
         refund_policy_accepted: true,
         refund_policy_accepted_at: new Date().toISOString(),
         refund_policy_version: "2026-11-05",
@@ -78,8 +92,34 @@ export default function RegistrationForm({ isDonorFlow = false }: { isDonorFlow?
       });
       if (res.ok) {
         const json = await res.json();
-        setSubmittedData({ ...data, id: json.id });
-        toast.success("Registration successful! Check your email for confirmation.");
+        // Preserve registration details in sessionStorage so data is retained for future gateway
+        try {
+          if (typeof window !== "undefined") {
+            sessionStorage.setItem(
+              "bgvm_pending_registration",
+              JSON.stringify({
+                id: json.id,
+                donationAmount: json.donationAmount ?? Number(data.donationAmount),
+                currency: json.currency || "INR",
+                name: data.name,
+                email: data.email,
+                phone: data.phone,
+                country: data.country,
+                city: data.city,
+                registrationType: data.registrationType,
+                noOfPersons: data.noOfPersons,
+                assistance: data.assistance,
+                registerForEvent: data.registerForEvent,
+                paymentStatus: "PENDING",
+                registrationDate: new Date().toISOString(),
+              })
+            );
+          }
+        } catch {
+          // ignore storage quota errors
+        }
+        // Redirect to dedicated payment route
+        router.push(`/payment?ref=${encodeURIComponent(json.id)}`);
       } else {
         const err = await res.json();
         toast.error(err.message || "Registration failed. Please try again.");
@@ -128,9 +168,13 @@ export default function RegistrationForm({ isDonorFlow = false }: { isDonorFlow?
   return (
     <div className="w-full max-w-2xl mx-auto px-4 sm:px-0">
       <div className="mb-8">
-        <h2 className="font-serif text-2xl font-semibold text-ink mb-2">Registration Details</h2>
+        <h2 className="font-serif text-2xl font-semibold text-ink mb-2">
+          {isDonorFlow ? "Donor Registration & Contribution" : "Registration Details"}
+        </h2>
         <p className="text-ink-muted text-sm font-sans">
-          Please fill out the form below to register for the Mahotsav.
+          {isDonorFlow
+            ? "Complete your donor registration and pledge your contribution to the Mahotsav."
+            : "Please fill out the form below to register for the Mahotsav."}
         </p>
       </div>
 
@@ -192,6 +236,28 @@ export default function RegistrationForm({ isDonorFlow = false }: { isDonorFlow?
               />
               {errors.noOfPersons && <p className="text-red-500 text-xs mt-1">{errors.noOfPersons?.message}</p>}
             </div>
+          </div>
+
+          <div>
+            <label className="block text-xs font-semibold font-sans text-ink tracking-wider uppercase mb-1.5">
+              DONATION AMOUNT (₹) *
+            </label>
+            <div className="relative">
+              <span className="absolute inset-y-0 left-0 pl-3.5 flex items-center text-ink-muted text-sm font-semibold pointer-events-none select-none">
+                ₹
+              </span>
+              <input
+                {...register("donationAmount")}
+                type="number"
+                step="0.01"
+                min="0.01"
+                className="w-full border border-gray-200 rounded-sm pl-8 pr-4 py-3 text-ink-body text-sm font-sans focus:outline-none focus:border-gold transition-colors"
+                placeholder="Enter donation amount"
+              />
+            </div>
+            {errors.donationAmount && (
+              <p className="text-red-500 text-xs mt-1">{errors.donationAmount?.message}</p>
+            )}
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
@@ -359,14 +425,14 @@ export default function RegistrationForm({ isDonorFlow = false }: { isDonorFlow?
             <button
               type="submit"
               disabled={loading}
-              className="btn-gold w-full justify-center"
+              className="btn-gold w-full justify-center disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              {loading ? "Registering..." : "Complete Registration →"}
+              {loading ? "Processing..." : "MAKE PAYMENT →"}
             </button>
           </div>
 
           <p className="text-center text-xs text-ink-muted font-sans pt-2">
-            A confirmation email will be sent immediately after registration.
+            A confirmation receipt will be sent immediately after successful payment.
           </p>
         </form>
       </motion.div>

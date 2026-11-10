@@ -19,6 +19,9 @@ model Registration {
   country                String
   city                   String
   noOfPersons            Int?             @default(1)
+  donationAmount         Float            @default(0.0) @map("donation_amount")
+  currency               String           @default("INR") @map("currency")
+  paymentStatus          String           @default("PENDING") @map("payment_status")
   assistance             String[]         @default([])
   registerForEvent       String[]         @default([])
   refundPolicyAccepted   Boolean          @default(false) @map("refund_policy_accepted")
